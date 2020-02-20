@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import BusStops from "./BusStops";
-class StopForm extends React.Component {
+class SearchForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -40,4 +40,4 @@ class StopForm extends React.Component {
     }
   }
 
-export default StopForm;
+export default SearchForm;
