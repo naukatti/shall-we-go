@@ -13,8 +13,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <h1>Noora's Bus App</h1>
-      <h2>Eficode and Back Again</h2>
+      <h1>Let's go to work!</h1>
+      <h2></h2>
       <SearchForm />
     </ApolloProvider>
   );

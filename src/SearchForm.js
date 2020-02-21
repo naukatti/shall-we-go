@@ -1,18 +1,18 @@
 import React, { Fragment } from "react";
-import BusStops from "./BusStops";
+import BusRoutes from "./BusRoutes";
 class SearchForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        busStop: ""
+        busRoute: ""
       };
   
-      this.handleBusStopChange = this.handleBusStopChange.bind(this);
+      this.handleBusRouteChange = this.handleBusRouteChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    handleBusStopChange(event) {
-      this.setState({ busStop: event.target.value });
+    handleBusRouteChange(event) {
+      this.setState({ busRoute: event.target.value });
     }
   
     handleSubmit(event) {
@@ -27,14 +27,14 @@ class SearchForm extends React.Component {
             <label>
               Stop name:
               <input
-                value={this.state.busStop}
-                onChange={this.handleBusStopChange}
+                value={this.state.busRoute}
+                onChange={this.handleBusRouteChange}
               />
             </label>
-            <input type="submit" value="Search stop" />
+            <input type="submit" value="Search Route" />
           </form>
           <hr></hr>
-          <BusStops stopQuery={this.state.busStop}></BusStops>
+          <BusRoutes routeQuery={this.state.busRoute}></BusRoutes>
         </Fragment>
       );
     }
