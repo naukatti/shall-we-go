@@ -1,7 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import BusRoute from "./BusRoute"
+import BusRoute from "./Itinerary"
 
 //GET_STOP -> GET_ROUTES
 //Malminasema: lat: 60.2517007, Lon: 24.9985146 ID:HSL:1381101
@@ -10,6 +10,8 @@ const GET_ROUTES = gql`
 {
   plan(fromPlace: "HSL:1381101", toPlace: "HSL:1130139") {
     itineraries {
+      startTime
+      endTime
       legs {
         route {
           shortName
@@ -22,8 +24,9 @@ const GET_ROUTES = gql`
           name
           departureTime
         }
-        startTime
-        endTime
+        trip {
+          tripHeadsign
+        }
       }
     }
   }
@@ -42,8 +45,9 @@ const BusRoutes = (props) => (
           {props.routeQuery}
           <table>
             <thead>
-              <tr>
-              </tr>
+             <th>Leave home</th>
+             <th>At office</th>
+             <th>How to</th>
             </thead>
             <tbody>
             {data && data.plan && data.plan.itineraries.map(itinerary => <BusRoute data={itinerary} />)}

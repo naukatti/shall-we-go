@@ -23,17 +23,6 @@ class SearchForm extends React.Component {
     render() {
       return (
         <Fragment>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Stop name:
-              <input
-                value={this.state.busRoute}
-                onChange={this.handleBusRouteChange}
-              />
-            </label>
-            <input type="submit" value="Search Route" />
-          </form>
-          <hr></hr>
           <BusRoutes routeQuery={this.state.busRoute}></BusRoutes>
         </Fragment>
       );

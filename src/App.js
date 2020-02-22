@@ -14,7 +14,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <h1>Let's go to work!</h1>
-      <h2></h2>
       <SearchForm />
     </ApolloProvider>
   );
