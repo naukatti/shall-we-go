@@ -3,8 +3,7 @@ import "./index.css";
 
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import BusRoutes from "./BusRoutes"
-import styled from "styled-components";
+import Routes from "./Routes"
 
 
 const client = new ApolloClient({
@@ -16,7 +15,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="MainElement">
         <h1>Let's go to work!</h1>
-        <BusRoutes />
+        <Routes />
       </div>
     </ApolloProvider>
   );

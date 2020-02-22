@@ -1,10 +1,11 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import BusRoute from "./Itinerary"
+import Itinerary from "./Itinerary"
 import styled from "styled-components";
 
-//Eficode: 60.1694107,24.9236173
+// Home: lat:60.251137, lon:25.014370
+// Eficode: lat:60.1694107, lon:24.9236173
 const GET_ROUTES = gql`
 {
   plan(from: {lat:60.251137, lon:25.014370}, to: {lat: 60.1694107, lon: 24.9236173}) {
@@ -37,7 +38,7 @@ const Table = styled.table`
   grid-template-columns: 5rem auto 5rem;
 `
 
-const BusRoutes = () => (
+const Routes = () => (
   <Query query={GET_ROUTES}>
     {({ loading, error, data }) => {
       if (loading) return null;
@@ -53,7 +54,7 @@ const BusRoutes = () => (
               <th>At office</th>
             </thead>
             <tbody>
-              {data && data.plan && data.plan.itineraries.map(itinerary => <BusRoute data={itinerary} />)}
+              {data && data.plan && data.plan.itineraries.map(itinerary => <Itinerary data={itinerary} />)}
             </tbody>
           </Table>
         </div>
@@ -62,4 +63,4 @@ const BusRoutes = () => (
   </Query>
 );
 
-export default BusRoutes;
+export default Routes;

@@ -18,7 +18,7 @@ const Row = styled.tr`
 const time = (unixMillis) =>
     new Date(unixMillis).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) // 24h format
 
-const BusRoute = (props) => (
+const Itinerary = (props) => (
     <Row>
         <Time>{time(props.data.startTime)}</Time>
         <td>
@@ -36,4 +36,4 @@ const BusRoute = (props) => (
 
 )
 
-export default BusRoute;
+export default Itinerary;
