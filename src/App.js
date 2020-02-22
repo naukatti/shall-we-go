@@ -3,7 +3,7 @@ import "./index.css";
 
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import SearchForm from "./SearchForm"
+import BusRoutes from "./BusRoutes"
 import styled from "styled-components";
 
 
@@ -16,7 +16,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="MainElement">
         <h1>Let's go to work!</h1>
-        <SearchForm />
+        <BusRoutes />
       </div>
     </ApolloProvider>
   );

@@ -37,7 +37,7 @@ const Table = styled.table`
   grid-template-columns: 5rem auto 5rem;
 `
 
-const BusRoutes = (props) => (
+const BusRoutes = () => (
   <Query query={GET_ROUTES}>
     {({ loading, error, data }) => {
       if (loading) return null;
@@ -46,7 +46,6 @@ const BusRoutes = (props) => (
       return (
         <div>
           <h2>TIMETABLES</h2>
-          {props.routeQuery}
           <Table>
             <thead>
               <th>Leave home</th>
