@@ -1,33 +1,39 @@
 import React, { Fragment } from "react";
-import styled from  "styled-components";
+import styled from "styled-components";
 
-const Time = styled.span `
+const Time = styled.td`
     font-weight: bold;
 `
+const Detail = styled.td`
+    ;
+`
+const Leg = styled.td`
+    padding: 0 2rem;
+`
 
-const time = (unixMillis) => new Date(unixMillis).toLocaleTimeString();
+const Row = styled.tr`
+    margin: 2rem 0;
+`
+
+const time = (unixMillis) =>
+    new Date(unixMillis).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) // 24h format
 
 const BusRoute = (props) => (
-    // {"gtfsId":"HSL:1363101","name":"Viikki","code":"3478","lat":60.229313,"lon":25.010037,"__typename":"Stop"}
-    <Fragment>
-    <tr>
-    <td><Time>{time(props.data.startTime)}</Time></td>
-    <td><Time>{time(props.data.endTime)}</Time></td>
-    <td>
-        <details>
-        {props.data.legs.map(leg => 
-        <Fragment>
-            <td>Time: {time(leg.from.departureTime)}</td>
-            <td>From: {leg.from.name}</td>
-            <td>Vehicle: {leg.route ? leg.route.shortName : "Walk"}</td>
-            <td>Towards: {leg.trip ? leg.trip.tripHeadsign : ""}</td>
-        </Fragment>
-        )}
-        </details>
-    </td>
-    </tr>
-    </Fragment>
-    
+    <Row>
+        <Time>{time(props.data.startTime)}</Time>
+        <td>
+            {props.data.legs.map(leg =>
+                <Leg>
+                    <Detail>{time(leg.from.departureTime)}</Detail>
+                    <Detail>{leg.from.name}</Detail>
+                    <Detail>{leg.route ? leg.route.shortName : "walk"}</Detail>
+                    <Detail>{leg.trip ? leg.trip.tripHeadsign : ""}</Detail>
+                </Leg>
+            )}
+        </td>
+        <Time>{time(props.data.endTime)}</Time>
+    </Row>
+
 )
 
 export default BusRoute;

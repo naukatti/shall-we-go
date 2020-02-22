@@ -1,3 +1,11 @@
+/*
+Peach fuzz  #ffe8bb 	(255,232,187)
+Bubblegum	#ffd0d0 	(255,208,208)
+Strawberrymilk	#ffbaba 	(255,186,186)
+Kittycat toe beans	#ff9191 	(255,145,145)
+Watermelon	#ff6969 	(255,105,105)
+*/
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,22 +13,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffe8bb;
+  font-size: 16pt;
+  line-height: 1.75; 
 }
 
-form {
-  margin-top: 20%;
+h1 {
   text-align: center;
+  color: #ff6969;
 }
 
-textarea {
-  margin-left: 10px;
+h2 {
+  text-align: center;
+  color: #ff6969;
 }
 
-button {
-  margin-right: 10px;
+.MainElement {
+  display: grid;
+  grid-template-columns: 
+    [full-start] minmax(1em, 1fr) 
+    [main-start] minmax(0, 50em) [main-end]
+    minmax(1em, 1fr) [full-end];
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-};
+.MainElement > * {
+  grid-column: main;
+}

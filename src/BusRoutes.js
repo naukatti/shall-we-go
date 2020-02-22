@@ -2,13 +2,12 @@ import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import BusRoute from "./Itinerary"
+import styled from "styled-components";
 
-//GET_STOP -> GET_ROUTES
-//Malminasema: lat: 60.2517007, Lon: 24.9985146 ID:HSL:1381101
-//Eficode: lat: 60.1693803, lon: 24.9236575 ID:HSL:1130139
+//Eficode: 60.1694107,24.9236173
 const GET_ROUTES = gql`
 {
-  plan(fromPlace: "HSL:1381101", toPlace: "HSL:1130139") {
+  plan(from: {lat:60.251137, lon:25.014370}, to: {lat: 60.1694107, lon: 24.9236173}) {
     itineraries {
       startTime
       endTime
@@ -16,13 +15,13 @@ const GET_ROUTES = gql`
         route {
           shortName
         }
-        to {
-          name
-          arrivalTime
-        }
         from {
           name
           departureTime
+        }
+        to {
+          name
+          arrivalTime
         }
         trip {
           tripHeadsign
@@ -32,7 +31,12 @@ const GET_ROUTES = gql`
   }
 }
 `;
-//BusStops -> BusRoutes
+
+const Table = styled.table`
+  width: 100%;
+  grid-template-columns: 5rem auto 5rem;
+`
+
 const BusRoutes = (props) => (
   <Query query={GET_ROUTES}>
     {({ loading, error, data }) => {
@@ -43,16 +47,16 @@ const BusRoutes = (props) => (
         <div>
           <h2>TIMETABLES</h2>
           {props.routeQuery}
-          <table>
+          <Table>
             <thead>
-             <th>Leave home</th>
-             <th>At office</th>
-             <th>How to</th>
+              <th>Leave home</th>
+              <th>How to</th>
+              <th>At office</th>
             </thead>
             <tbody>
-            {data && data.plan && data.plan.itineraries.map(itinerary => <BusRoute data={itinerary} />)}
+              {data && data.plan && data.plan.itineraries.map(itinerary => <BusRoute data={itinerary} />)}
             </tbody>
-          </table>
+          </Table>
         </div>
       );
     }}
