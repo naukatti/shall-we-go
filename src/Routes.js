@@ -8,7 +8,7 @@ import styled from "styled-components";
 // Eficode: lat:60.1694107, lon:24.9236173
 const GET_ROUTES = gql`
 {
-  plan(from: {lat:60.251137, lon:25.014370}, to: {lat: 60.1694107, lon: 24.9236173}) {
+  plan(numItineraries: 7, from: {lat:60.251137, lon:25.014370}, to: {lat: 60.1694107, lon: 24.9236173}) {
     itineraries {
       startTime
       endTime

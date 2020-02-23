@@ -9,6 +9,7 @@ const Detail = styled.td`
 `
 const Leg = styled.td`
     padding: 0 0.5rem;
+    float: left;
 `
 
 const Row = styled.tr`
@@ -21,6 +22,9 @@ const Transport = styled.td`
     text-align: center;
     min-width: 2rem;
 `
+const Legs = styled.td`
+
+`
 
 const time = (unixMillis) =>
     new Date(unixMillis).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) // 24h format
@@ -28,7 +32,7 @@ const time = (unixMillis) =>
 const Itinerary = (props) => (
     <Row>
         <Time>{time(props.data.startTime)}</Time>
-        <td>
+        <Legs>
             {props.data.legs.map(leg =>
                 <Leg>
                     <Detail>{time(leg.from.departureTime)}</Detail>
@@ -37,7 +41,7 @@ const Itinerary = (props) => (
                     <Detail>{leg.trip ? leg.trip.tripHeadsign : ""}</Detail>
                 </Leg>
             )}
-        </td>
+        </Legs>
         <Time>{time(props.data.endTime)}</Time>
     </Row>
 
