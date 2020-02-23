@@ -8,11 +8,16 @@ const Detail = styled.td`
     ;
 `
 const Leg = styled.td`
-    padding: 0 2rem;
+    padding: 0 0.5rem;
 `
 
 const Row = styled.tr`
     margin: 2rem 0;
+`
+const Transport = styled.td`
+    background-color: #ffbaba;
+    border-radius: 1rem;
+    padding: 0.5rem 0.5rem;
 `
 
 const time = (unixMillis) =>
@@ -26,7 +31,7 @@ const Itinerary = (props) => (
                 <Leg>
                     <Detail>{time(leg.from.departureTime)}</Detail>
                     <Detail>{leg.from.name}</Detail>
-                    <Detail>{leg.route ? leg.route.shortName : "walk"}</Detail>
+                    <Transport>{leg.route ? leg.route.shortName : "🏃"}</Transport>
                     <Detail>{leg.trip ? leg.trip.tripHeadsign : ""}</Detail>
                 </Leg>
             )}

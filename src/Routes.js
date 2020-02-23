@@ -37,6 +37,12 @@ const Table = styled.table`
   width: 100%;
   grid-template-columns: 5rem auto 5rem;
 `
+const TimeHeader = styled.th`
+  text-align: left;
+`
+const HowToHeader = styled.th`
+  text-align: center;
+`
 
 const Routes = () => (
   <Query query={GET_ROUTES}>
@@ -46,12 +52,12 @@ const Routes = () => (
 
       return (
         <div>
-          <h2>TIMETABLES</h2>
+          <h2> 🚌 TIMETABLES 🚆 </h2>
           <Table>
             <thead>
-              <th>Leave home</th>
-              <th>How to</th>
-              <th>At office</th>
+              <TimeHeader>Leave home</TimeHeader>
+              <HowToHeader>How to</HowToHeader>
+              <TimeHeader>At office</TimeHeader>
             </thead>
             <tbody>
               {data && data.plan && data.plan.itineraries.map(itinerary => <Itinerary data={itinerary} />)}
