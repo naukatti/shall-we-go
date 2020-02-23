@@ -14,6 +14,9 @@ const Leg = styled.td`
 
 const Row = styled.tr`
     margin: 2rem 0;
+    vertical-align: top;
+    box-shadow: 0 2px #ffd0d0;
+    padding-bottom: 2rem;
 `
 const Transport = styled.td`
     background-color: #ffbaba;
