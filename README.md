@@ -13,7 +13,7 @@ It shows 7 different routes at a time and updates the when you refresh the app.
 
 ## Technical stuff
 
-##How to use
+## How to use
 
 - Local development environment can be set up with `npm install` and `npm start`
 - A docker container can be launched with `docker-compose up`
