@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Time = styled.td`
     font-weight: bold;
 `
 const Detail = styled.td`
-    ;
+    text-align: center;
 `
 const Leg = styled.td`
     padding: 0 0.5rem;
@@ -16,8 +16,10 @@ const Row = styled.tr`
 `
 const Transport = styled.td`
     background-color: #ffbaba;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 0.5rem 0.5rem;
+    text-align: center;
+    min-width: 2rem;
 `
 
 const time = (unixMillis) =>
