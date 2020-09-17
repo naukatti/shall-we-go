@@ -32,10 +32,30 @@ h2 {
   display: grid;
   grid-template-columns: 
     [full-start] minmax(1em, 1fr) 
-    [main-start] minmax(0, 50em) [main-end]
+    [main-start] minmax(0, 80em) [main-end]
     minmax(1em, 1fr) [full-end];
 }
 
 .MainElement > * {
   grid-column: main;
+}
+
+@media only screen and (max-width: 500px) {
+
+  body {
+  font-size: 10pt;
+  line-height: 1.75;
+  }
+
+  .MainElement {
+    display: grid;
+    grid-template-columns: 
+      [full-start] minmax(0 em, 0fr) 
+      [main-start] minmax(0, 20em) [main-end]
+      minmax(1em, 1fr) [full-end];
+  }
+  
+  .MainElement > * {
+    grid-column: main;
+  }
 }
