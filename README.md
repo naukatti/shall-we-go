@@ -22,5 +22,7 @@ It shows 7 different routes at a time and updates the when you refresh the app.
 
 - Responsivity
 - Accessibility
+- Some basic tests
+- Dark theme
 - The start and end location could be changed from the app
 
