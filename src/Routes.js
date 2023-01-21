@@ -4,14 +4,13 @@ import { gql } from "apollo-boost";
 import Itinerary from "./Itinerary";
 import styled from "styled-components";
 
-// Home: lat:60.17786, lon:25.04901
-// Eficode: lat:60.1694107, lon:24.9236173
+// Gofore Helsinki office: lat:60.1683058, lon:24.9319557
 const GET_ROUTES = gql`
   {
     plan(
       numItineraries: 5
       from: { lat: 60.17786, lon: 25.04901 }
-      to: { lat: 60.1694107, lon: 24.9236173 }
+      to: { lat: 60.1683058, lon: 24.9319557 }
     ) {
       itineraries {
         startTime
