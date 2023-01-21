@@ -1,7 +1,9 @@
-FROM node:latest
+FROM node:16
 WORKDIR /usr/src/app
+RUN npm install -g serve
 COPY package.json .
-RUN npm install
+COPY package-lock.json .
+RUN npm ci
 COPY . .
-EXPOSE 3000
-CMD [ "npm", "start" ]
+RUN npm run build
+CMD ["serve", "build"]
